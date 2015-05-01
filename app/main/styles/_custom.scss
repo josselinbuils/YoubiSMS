@@ -1,0 +1,72 @@
+.bar.bar-header {
+	height: 55px !important;
+}
+
+.has-header {
+	top: 55px !important;
+}
+
+.bar .title {
+	line-height: 55px !important;
+}
+
+.item {
+	border-width: 0 !important;
+}
+
+.item-avatar img {
+	top: 13px !important;
+	left: 13px !important;
+	max-width: 46px !important;
+	max-height: 46px !important;
+}
+
+.item h2 {
+	font-size: 18px !important;
+}
+
+.item p {
+	font-size: 16px;
+}
+
+.avatar-picture {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.msgContainer {
+  padding: 5px 15px;
+}
+
+.msgContainer:first-child {
+  padding-top: 15px;
+}
+
+.msgContainer:last-child {
+  padding-bottom: 15px;
+}
+
+.msgContainer .message {
+  padding: 10px;
+  max-width: 75%;
+  border-radius: 4px;
+  white-space: normal;
+}
+
+.msgContainer .messageInbox {
+  background: #4a87ee;
+  color: white;
+  float: left;
+}
+
+.msgContainer .messageSent {
+  background: lightgrey;
+  float: right;
+}
+
+.msgContainer .messageDate {
+  text-align: center;
+  font-size: 12px;
+  color: grey;
+}

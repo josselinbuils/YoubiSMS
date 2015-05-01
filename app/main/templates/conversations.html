@@ -1,0 +1,12 @@
+<ion-view title="YoubiSMS" hide-back-button="true">
+  <ion-content>
+	<ion-list can-swipe="true" data-tap-disabled="true" no-swipe-scroll>
+	  <ion-item ng-click="loadConversation($index)" ng-repeat="conversation in SmsManager.conversations" class="item-avatar">
+	  	<img ng-src="{{conversation.contactPhoto}}">
+		<h2>{{conversation.contactName}}&nbsp;</h2>
+		<p>{{conversation.messages[0].body}}</p>
+		<ion-option-button class="button-assertive icon ion-trash-a"></ion-option-button>
+	  </ion-item>
+	</ion-list>
+  </ion-content>
+</ion-view>

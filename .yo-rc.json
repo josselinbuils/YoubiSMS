@@ -1,0 +1,14 @@
+{
+  "generator-m": {
+    "answers": {
+      "appName": "YoubiSMS",
+      "appId": "com.josselinbuils.youbisms",
+      "bowerPackages": [],
+      "platforms": [
+        "android"
+      ],
+      "plugins": [],
+      "appModule": "YoubiSMS"
+    }
+  }
+}

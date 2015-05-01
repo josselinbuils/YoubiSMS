@@ -1,0 +1,13 @@
+<ion-view title="{{getConv().contactName}}">
+  <ion-nav-buttons side="right">
+    <img ng-src="{{getConv().contactPhoto}}" class="avatar-picture">
+  </ion-nav-buttons> 
+  <ion-content>
+  <ion-list no-swipe-scroll>
+    <ion-item ng-repeat="message in getConv().messages" class="msgContainer">
+      <div class="messageDate">{{getDate(message)}}</div>
+      <div ng-class="getClass(message)">{{message.body}}</div>
+    </ion-item>
+  </ion-list>
+  </ion-content>
+</ion-view>

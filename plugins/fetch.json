@@ -1,0 +1,27 @@
+{
+    "com.rjfun.cordova.sms": {
+        "source": {
+            "type": "registry",
+            "id": "com.rjfun.cordova.sms"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.contacts": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.contacts"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-statusbar": {
+        "source": {
+            "type": "git",
+            "url": "git://git.apache.org/cordova-plugin-statusbar.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}
