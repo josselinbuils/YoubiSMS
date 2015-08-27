@@ -9,7 +9,11 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"SMS\"><param name=\"android-package\" value=\"com.rjfun.cordova.sms.SMSPlugin\" /></feature>",
+                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"cordova-plugin-smsmanager\"><param name=\"android-package\" value=\"org.josselinbuils.cordova-plugin-smsmanager.cordova-plugin-smsmanager\" /></feature>",
                             "count": 1
                         },
                         {
@@ -17,7 +21,19 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": "<feature name=\"Keyboard\"><param name=\"android-package\" value=\"com.ionic.keyboard.IonicKeyboard\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Clipboard\"><param name=\"android-package\" value=\"com.verso.cordova.clipboard.Clipboard\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Toast\"><param name=\"android-package\" value=\"nl.xservices.plugins.Toast\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SMSManager\"><param name=\"android-package\" value=\"com.josselinbuils.SMSManager.SMSManager\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -27,6 +43,18 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<uses-permission android:name=\"android.permission.READ_CONTACTS\" />",
+                            "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
+                            "count": 1
+                        },
+                        {
                             "xml": "<uses-feature android:name=\"android.hardware.telephony\" android:required=\"false\" />",
                             "count": 1
                         },
@@ -35,15 +63,15 @@
                             "count": 1
                         },
                         {
+                            "xml": "<uses-permission android:name=\"android.permission.SEND_SMS\" />",
+                            "count": 1
+                        },
+                        {
                             "xml": "<uses-permission android:name=\"android.permission.RECEIVE_SMS\" />",
                             "count": 1
                         },
                         {
-                            "xml": "<uses-permission android:name=\"android.permission.RECEIVE_WAP_PUSH\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.RECEIVE_MMS\" />",
+                            "xml": "<uses-permission android:name=\"android.permission.BROADCAST_SMS\" />",
                             "count": 1
                         },
                         {
@@ -55,19 +83,73 @@
                             "count": 1
                         },
                         {
-                            "xml": "<uses-permission android:name=\"android.permission.SEND_SMS\" />",
+                            "xml": "<uses-permission android:name=\"android.permission.RECEIVE_MMS\" />",
                             "count": 1
                         },
                         {
-                            "xml": "<uses-permission android:name=\"android.permission.READ_CONTACTS\" />",
+                            "xml": "<uses-permission android:name=\"android.permission.RECEIVE_WAP_PUSH\" />",
                             "count": 1
                         },
                         {
-                            "xml": "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\" />",
+                            "xml": "<uses-permission android:name=\"android.permission.BROADCAST_WAP_PUSH\" />",
                             "count": 1
                         },
                         {
-                            "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
+                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.SEND_RESPOND_VIA_MESSAGE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"com.android.alarm.permission.SET_ALARM\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest/application": [
+                        {
+                            "xml": "<receiver android:enabled=\"true\" android:name=\"com.josselinbuils.SMSManager.SMSReceived\" android:permission=\"android.permission.BROADCAST_SMS\"><intent-filter><action android:name=\"android.provider.Telephony.SMS_DELIVER\" /></intent-filter></receiver>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:enabled=\"true\" android:name=\"com.josselinbuils.SMSManager.SMSSent\"><intent-filter><action android:name=\"SMS_SENT\" /></intent-filter></receiver>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:enabled=\"true\" android:name=\"com.josselinbuils.SMSManager.SMSDelivered\"><intent-filter><action android:name=\"SMS_DELIVERED\" /></intent-filter></receiver>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:enabled=\"true\" android:name=\".MmsReceiver\" android:permission=\"android.permission.BROADCAST_WAP_PUSH\"><intent-filter><action android:name=\"android.provider.Telephony.WAP_PUSH_DELIVER\" /><data android:mimeType=\"application/vnd.wap.mms-message\" /></intent-filter></receiver>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:name=\".ComposeSmsActivity\"><intent-filter><action android:name=\"android.intent.action.SEND\" /><action android:name=\"android.intent.action.SENDTO\" /><category android:name=\"android.intent.category.DEFAULT\" /><category android:name=\"android.intent.category.BROWSABLE\" /><data android:scheme=\"sms\" /><data android:scheme=\"smsto\" /><data android:scheme=\"mms\" /><data android:scheme=\"mmsto\" /></intent-filter></activity>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<service android:exported=\"true\" android:name=\".HeadlessSmsSendService\" android:permission=\"android.permission.SEND_RESPOND_VIA_MESSAGE\"><intent-filter><action android:name=\"android.intent.action.RESPOND_VIA_MESSAGE\" /><category android:name=\"android.intent.category.DEFAULT\" /><data android:scheme=\"sms\" /><data android:scheme=\"smsto\" /><data android:scheme=\"mms\" /><data android:scheme=\"mmsto\" /></intent-filter></service>",
                             "count": 1
                         }
                     ]
@@ -76,13 +158,22 @@
         }
     },
     "installed_plugins": {
-        "com.rjfun.cordova.sms": {
-            "PACKAGE_NAME": "com.josselinbuils.youbisms"
-        },
-        "org.apache.cordova.contacts": {
-            "PACKAGE_NAME": "com.josselinbuils.youbisms"
-        },
         "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.josselinbuils.youbisms"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.josselinbuils.youbisms"
+        },
+        "com.ionic.keyboard": {
+            "PACKAGE_NAME": "com.josselinbuils.youbisms"
+        },
+        "com.verso.cordova.clipboard": {
+            "PACKAGE_NAME": "com.josselinbuils.youbisms"
+        },
+        "nl.x-services.plugins.toast": {
+            "PACKAGE_NAME": "com.josselinbuils.youbisms"
+        },
+        "com.josselinbuils.SMSManager": {
             "PACKAGE_NAME": "com.josselinbuils.youbisms"
         }
     },

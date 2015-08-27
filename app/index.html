@@ -17,7 +17,7 @@
 <!-- endbuild -->
 </head>
 <body ng-app="YoubiSMS">
-  <ion-nav-bar class="bar-positive">
+  <ion-nav-bar class="bar-positive" no-tap-scroll="true">
     <ion-nav-back-button class="button-icon ion-arrow-left-c"></ion-nav-back-button>
   </ion-nav-bar>
   <ion-nav-view></ion-nav-view>
@@ -25,6 +25,7 @@
   <!-- will be a 404 during development -->
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
@@ -35,14 +36,17 @@
   <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
   <script src="bower_components/ionic/release/js/ionic.js"></script>
   <script src="bower_components/ionic/release/js/ionic-angular.js"></script>
+  <script src="bower_components/peerjs/peer.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:js scripts/app.js -->
   <!-- inject:js -->
   <script src="main/main.js"></script>
-  <script src="main/services/underscore-serv.js"></script>
+  <script src="main/services/web-rtc-serv.js"></script>
+  <script src="main/services/sms-writer-serv.js"></script>
   <script src="main/services/sms-manager-serv.js"></script>
   <script src="main/directives/no-swipe-scroll-dir.js"></script>
+  <script src="main/controllers/new-message-ctrl.js"></script>
   <script src="main/controllers/conversations-ctrl.js"></script>
   <script src="main/controllers/conversation-ctrl.js"></script>
   <script src="main/constants/config-const.js"></script>

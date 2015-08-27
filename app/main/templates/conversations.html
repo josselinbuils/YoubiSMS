@@ -1,12 +1,16 @@
-<ion-view title="YoubiSMS" hide-back-button="true">
-  <ion-content>
-	<ion-list can-swipe="true" data-tap-disabled="true" no-swipe-scroll>
-	  <ion-item ng-click="loadConversation($index)" ng-repeat="conversation in SmsManager.conversations" class="item-avatar">
-	  	<img ng-src="{{conversation.contactPhoto}}">
-		<h2>{{conversation.contactName}}&nbsp;</h2>
-		<p>{{conversation.messages[0].body}}</p>
-		<ion-option-button class="button-assertive icon ion-trash-a"></ion-option-button>
-	  </ion-item>
-	</ion-list>
+<ion-view view-title="YoubiSMS" hide-back-button="true">
+   <ion-nav-buttons side="right">
+    <a class="button button-icon icon ion-plus-round" ng-click="newMessage()"></a>
+  </ion-nav-buttons> 
+  <ion-content class="conversations">
+    <ion-list can-swipe="true" ng-show="SmsManagerServ.conversations.length > 0" no-swipe-scroll>
+      <ion-item ng-click="loadConversation(conversation.id)" id="item_{{conversation.id}}" collection-repeat="conversation in SmsManagerServ.conversations" class="item-avatar">
+        <img ng-src="{{SmsManagerServ.convThumbnails[conversation.id] || SmsManagerServ.defaultUserPicture}}">
+        <h2 class="convContact" ng-bind="conversation.contacts[0].name"></h2>
+        <span class="convDate" ng-bind="conversation.date | date : 'dd/MM/yy'"></span>
+        <p>{{conversation.snippet}}</p>
+        <ion-option-button class="button-assertive icon ion-trash-a" ng-click="deleteConversation(conversation.id)"></ion-option-button>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>

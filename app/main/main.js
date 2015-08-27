@@ -1,5 +1,6 @@
 'use strict';
-angular.module('main', [ 'ionic', 'ngCordova', 'ui.router', 'LocalStorageModule' ]).config(function ($stateProvider, $urlRouterProvider, $compileProvider, $ionicConfigProvider, $logProvider) {
+
+angular.module('main', ['ionic', 'ngCordova', 'ui.router', 'LocalStorageModule']).config(function ($stateProvider, $urlRouterProvider, $compileProvider, $ionicConfigProvider, $logProvider) {
 
   $logProvider.debugEnabled(true);
 
@@ -8,15 +9,32 @@ angular.module('main', [ 'ionic', 'ngCordova', 'ui.router', 'LocalStorageModule'
 
   $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob|content):|data:image\//);
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/conversations');
 
   $stateProvider.state('conversations', {
-    url: '/',
+    url: '*path',
     templateUrl: 'main/templates/conversations.html',
     controller: 'ConversationsCtrl'
   }).state('conversation', {
-    url: '/conversation/:id',
     templateUrl: 'main/templates/conversation.html',
-    controller: 'ConversationCtrl'
+    controller: 'ConversationCtrl',
+    params: {
+      id: null,
+      messages: null
+    }
+  }).state('newMessage', {
+    templateUrl: 'main/templates/newMessage.html',
+    controller: 'NewMessageCtrl'
+  });
+});
+
+angular.module('main').run(function ($rootScope) {
+
+  window.addEventListener('native.keyboardhide', function (event) {
+    $rootScope.$broadcast('native.keyboardhide', event);
+  });
+
+  window.addEventListener('native.keyboardshow', function (event) {
+    $rootScope.$broadcast('native.keyboardshow', event);
   });
 });

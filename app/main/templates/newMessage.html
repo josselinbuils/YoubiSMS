@@ -1,0 +1,31 @@
+<ion-view view-title="Nouveau message" hide-back-button="true">
+  <ion-nav-buttons side="right">
+    <a class="button button-icon icon ion-close-round" ng-click="goBack()"></a>
+  </ion-nav-buttons>
+  <ion-content class="newMessage" id="newMessageContent" ng-click="SmsWriterServ.slideUpEmoji()">
+    <div class="contactsSelection">
+      <div class="sendingList"></div>
+      <div class="contactsInputCont"><input id="contactsInput" type="text" ng-model="contactsInputModel" ng-change="findNumbers()" /></div>
+    </div>
+    <ion-list nclass="contactsList">
+      <ion-item ng-click="addContact(number)" collection-repeat="number in numbersFound" class="item-avatar">
+        <img ng-src="{{SmsManagerServ.contactThumbnails[number.contactId] || SmsManagerServ.defaultUserPicture}}">
+        <h2>{{number.contactName}}&nbsp;</h2>
+        <p>{{number.type}} &nbsp; {{number.local}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar id="newMessageFooter" class="bar-light convFooter">
+    <div class="convInputCont">
+      <a class="button button-icon icon ion-android-happy" ng-click="SmsWriterServ.toggleEmoji()"></a>
+      <label class="item-input convInput">
+        <textarea id="convInput" placeholder="Message" rows="1" ng-click="SmsWriterServ.hideEmoji()" ng-model="convInputModel" ng-change="SmsWriterServ.convInputChange()"></textarea>
+      </label>
+      <a class="button button-icon icon ion-android-send" ng-click="SmsWriterServ.sendSMS()" ng-init="sendDisabled = true" ng-disabled="sendDisabled"></a>
+    </div>
+    <div class="emojiContainer">
+      <span ng-repeat="emoji in SmsWriterServ.emojis" ng-bind-html="emoji" ng-click="SmsWriterServ.insertEmoji(emoji)"></span>
+      <a class="button button-icon icon ion-backspace" ng-click="SmsWriterServ.inputBack()"></a>
+    </div>
+  </ion-footer-bar>
+</ion-view>

@@ -1,13 +1,32 @@
-<ion-view title="{{getConv().contactName}}">
+<ion-view>
+  <ion-nav-title>{{conversation.contacts[0].name}}</ion-nav-title>
   <ion-nav-buttons side="right">
-    <img ng-src="{{getConv().contactPhoto}}" class="avatar-picture">
-  </ion-nav-buttons> 
-  <ion-content>
-  <ion-list no-swipe-scroll>
-    <ion-item ng-repeat="message in getConv().messages" class="msgContainer">
-      <div class="messageDate">{{getDate(message)}}</div>
-      <div ng-class="getClass(message)">{{message.body}}</div>
-    </ion-item>
-  </ion-list>
+    <img ng-src="{{SmsManagerServ.convThumbnails[conversation.id] || SmsManagerServ.defaultUserPicture}}" class="avatar-picture" ng-click="toggleContactInfos()">
+  </ion-nav-buttons>
+  <div class="contactInfos">
+    <img ng-src="{{photo}}" ng-click="toggleContactInfos()">
+    <div class="address" ng-click="copyPhoneNumber()" on-hold="copyPhoneNumber()" ng-bind="getLocalPhoneNumber()"></div>
+  </div>
+  <div id="contactInfosBackdrop" class="backdrop" ng-click="hideContactInfos()"></div>
+  <ion-content class="conversation" ng-click="SmsWriterServ.slideUpEmoji()" delegate-handle="convMessages">
+    <ion-list no-swipe-scroll>
+      <ion-item ng-repeat="message in messages" class="msgContainer">
+        <div class="messageDate">{{getDate($index)}}</div>
+        <div class="message" ng-class="message.box === 'inbox' ? 'messageIn' : 'messageOut'" ng-bind-html="getBody(message)"></div>
+      </ion-item>
+    </ion-list>
   </ion-content>
+  <ion-footer-bar class="bar-light convFooter">
+    <div class="convInputCont">
+      <a class="button button-icon icon ion-android-happy" ng-click="SmsWriterServ.toggleEmoji()"></a>
+      <label class="item-input convInput">
+        <textarea id="convInput" placeholder="Message" rows="1" ng-click="SmsWriterServ.hideEmoji()" ng-model="convInputModel" ng-change="SmsWriterServ.convInputChange()"></textarea>
+      </label>
+      <a class="button button-icon icon ion-android-send" ng-click="SmsWriterServ.sendSMS()" ng-init="sendDisabled = true" ng-disabled="sendDisabled"></a>
+    </div>
+    <div class="emojiContainer">
+      <span ng-repeat="emoji in SmsWriterServ.emojis" ng-bind-html="emoji" ng-click="SmsWriterServ.insertEmoji(emoji)"></span>
+      <a class="button button-icon icon ion-backspace" ng-click="SmsWriterServ.inputBack()"></a>
+    </div>
+  </ion-footer-bar>
 </ion-view>

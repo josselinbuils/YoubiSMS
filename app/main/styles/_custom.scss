@@ -2,6 +2,11 @@
 	height: 55px !important;
 }
 
+.bar .button {
+  min-height: 46px;
+}
+
+
 .has-header {
 	top: 55px !important;
 }
@@ -10,23 +15,57 @@
 	line-height: 55px !important;
 }
 
-.item {
+.conversations .item, .conversation .item {
 	border-width: 0 !important;
 }
 
-.item-avatar img {
-	top: 13px !important;
-	left: 13px !important;
-	max-width: 46px !important;
-	max-height: 46px !important;
+.conversations .item-avatar img {
+	top: 17px !important;
+	left: 17px !important;
+	max-width: 48px !important;
+	max-height: 48px !important;
+  background: #4a87ee;
 }
 
-.item h2 {
+.conversations .item-content {
+  padding: 20px 20px 20px 82px !important;
+}
+
+.conversations .item h2 {
 	font-size: 18px !important;
 }
 
-.item p {
+.conversations .item p {
 	font-size: 16px;
+}
+
+.conversations .convContact {
+  display: inline-block;
+  max-width: 70%;
+}
+
+.conversations .convDate {
+  float: right;
+  font-size: 12px;
+  color: grey;
+  line-height: 20px;
+}
+
+.newMessage .item {
+  padding: 11px 11px 11px 65px !important;
+  min-height: 65px;
+}
+
+.newMessage .item-avatar img {
+  top: 10px !important;
+  left: 10px !important;
+  max-width: 42px !important;
+  max-height: 42px !important;
+  background: #4a87ee;
+}
+
+.newMessage .item h2 {
+  margin-bottom: 5px !important;
 }
 
 .avatar-picture {
@@ -49,24 +88,201 @@
 
 .msgContainer .message {
   padding: 10px;
+  margin-top: 5px;
   max-width: 75%;
   border-radius: 4px;
   white-space: normal;
+  font-size: 18px;
 }
 
-.msgContainer .messageInbox {
+.msgContainer .messageIn {
   background: #4a87ee;
   color: white;
   float: left;
 }
 
-.msgContainer .messageSent {
-  background: lightgrey;
+.msgContainer .messageIn p {
+  color: white;
+}
+
+.msgContainer .messageOut {
+  background: rgb(230, 230, 230);
+  color: black;
   float: right;
+}
+
+.msgContainer .messageOut p {
+  color: black;
 }
 
 .msgContainer .messageDate {
   text-align: center;
   font-size: 12px;
   color: grey;
+}
+
+.msgContainer .message p {
+  margin: 5px 0;
+}
+
+.msgContainer .message p:first-child {
+  margin-top: 0;
+}
+
+.msgContainer .message p:last-child {
+  margin-bottom: 0;
+}
+
+.msgContainer .message img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.convInput {
+  width: 100%;
+  padding-left: 5px;
+}
+
+.convInput textarea {
+  font-size: 18px;
+  line-height: 20px;
+  padding-top: 8px;
+  max-height: 110px;
+}
+
+.ion-android-send, .ion-android-happy, .ion-backspace {
+  color: grey !important;
+  border-width: 0;
+}
+
+.ion-backspace {
+  float: right;
+}
+
+.ion-android-happy {
+  padding: 5px 12px 0 8px !important;
+}
+
+.ion-android-send {
+  padding: 5px 13px 0 0 !important;
+}
+
+.button-icon:before {
+  font-size: 29px !important;
+}
+
+ion-header-bar .button-icon:before {
+  line-height: 40px !important;
+}
+
+.ion-plus-round:before {
+  font-size: 26px !important;
+}
+
+.ion-close-round:before {
+  font-size: 22px !important;
+}
+
+.convFooter {
+  padding: 0 !important;
+  display: block;
+  height: auto;
+}
+
+.convInputCont {
+  width: 100%;
+  display: flex;
+}
+
+.emojiContainer {
+  font-size: 27px;
+  line-height: 36px;
+  padding: 0 5px 5px 5px;
+  display: none;
+}
+
+.emojiContainer span {
+  padding: 0px 3px;
+  cursor: pointer;
+}
+
+.contactInfos {
+  width: 100%;
+  height: 0;
+  display: none;
+  position: fixed;
+  top: 55px;
+  right: 0;
+  z-index: 12;
+  overflow: hidden;
+  background: #4a87ee;
+}
+
+.contactInfos > img {
+  width: 100%;
+}
+
+.contactInfos > .address {
+  position: absolute;
+  left: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0px 0px 1px black;
+}
+
+.contactsSelection {
+  width: 100%;
+  background: #4a87ee;
+  padding: 8px 10px;
+}
+
+.contactsSelection > .contactsInputCont > input {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.contactsSelection > .contactsInputCont {
+  display: block;
+  overflow: hidden;
+}
+
+.contactsSelection > .sendingList {
+  float: left;
+}
+
+.contactsSelection > .sendingList > div {
+  background: white;
+  padding: 5px 12px;
+  border-radius: 16px;
+  line-height: 23px;
+  font-size: 16px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.spinner svg {
+  width: 130px;
+  height: 130px;
+}
+
+.messageStatus {
+  margin: 2px 0 -5px 0;
+  margin-top: 2px;
+  font-size: 10px;
+  line-height: 10px;
+  color: grey;
+}
+
+.messageStatus i {
+  font-size: 9px;
+}
+
+.errorMessage {
+  color: red;
 }

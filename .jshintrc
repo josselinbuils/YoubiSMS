@@ -20,6 +20,14 @@
   "expr": true,
 
   "globals": {
-    "angular": false
+    "angular": false,
+    "$": false,
+    "_": false,
+    "cordova": false,
+    "ionic": false,
+    "document": false,
+    "window": false,
+    "SMSManager": false,
+    "navigator": false
   }
 }
