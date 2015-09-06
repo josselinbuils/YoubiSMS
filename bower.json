@@ -1,16 +1,16 @@
 {
   "dependencies": {
-    "angular": "1.4.5",
-    "angular-animate": "1.4.5",
-    "angular-sanitize": "1.4.5",
-    "angular-ui-router": "0.2.15",
-    "ngCordova": "0.1.20-alpha",
-    "underscore": "1.8.3",
-    "phoneformat.js": "1.0.1",
-    "angular-local-storage": "0.2.2",
-    "jquery": "2.1.4",
-    "ionic": "1.0.1",
-    "peerjs": "0.3.14"
+    "angular": "latest",
+    "angular-animate": "latest",
+    "angular-sanitize": "latest",
+    "angular-ui-router": "latest",
+    "ngCordova": "latest",
+    "underscore": "latest",
+    "phoneformat.js": "latest",
+    "angular-local-storage": "latest",
+    "jquery": "latest",
+    "ionic": "latest",
+    "peerjs": "latest"
   },
   "devDependencies": {},
   "name": "YoubiSMS",
