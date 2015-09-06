@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('main').controller('ConversationCtrl', function ($filter, $ionicHistory, $ionicPlatform, $ionicScrollDelegate, $log, $q, $scope, $state, $stateParams, SmsManagerServ, SmsWriterServ) {
+angular.module('main').controller('ConversationCtrl', function ($filter, $ionicHistory, $ionicPlatform, $ionicScrollDelegate, $log, $q, $scope, $state, $stateParams, $timeout, SmsManagerServ, SmsWriterServ) {
 
   /* Private variables */
 
@@ -202,7 +202,7 @@ angular.module('main').controller('ConversationCtrl', function ($filter, $ionicH
     $scope.messages = $stateParams.messages;
     SmsManagerServ.sendContact = $scope.conversation.contacts[0].phoneNumber;
 
-    $scope.$applyAsync(function () {
+    $timeout(function () {
       SmsWriterServ.resizeConvInput();
       initContactInfos();
     });

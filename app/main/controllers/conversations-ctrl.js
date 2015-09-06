@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('main').controller('ConversationsCtrl', function ($cordovaStatusbar, $ionicListDelegate, $ionicLoading, $ionicPlatform, $log, $scope, $state, SmsManagerServ, WebRtcServ) {
+angular.module('main').controller('ConversationsCtrl', function ($cordovaStatusbar, $ionicListDelegate, $ionicLoading, $ionicPlatform, $log, $scope, $state, $timeout, SmsManagerServ, WebRtcServ) {
 
   /* Scope variables */
 
@@ -16,10 +16,16 @@ angular.module('main').controller('ConversationsCtrl', function ($cordovaStatusb
   $scope.loadConversation = function (id) {
     $log.debug('ConversationsCtrl->loadConversation(' + id + ')');
 
+    var time = new Date().getTime();
+
     SmsManagerServ.getMessages(id).then(function (messages) {
-      $state.go('conversation', {
-        id: id,
-        messages: messages
+      $log.debug('ConversationsCtrl: conversations loaded in ' + (new Date().getTime() - time) + ' ms.');
+
+      $timeout(function () {
+        $state.go('conversation', {
+          id: id,
+          messages: messages
+        });
       });
     });
   };
