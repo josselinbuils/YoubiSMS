@@ -83,7 +83,20 @@ angular.module('main').controller('ConversationCtrl', function ($filter, $ionicH
 
   /* Scope functions */
 
+  $scope.copyMessage = function (message) {
+    $log.debug('ConversationCtrl->copyMessage()');
+
+    if (ionic.Platform.isAndroid()) {
+      cordova.plugins.clipboard.copy(message);
+      window.plugins.toast.showShortBottom('Message copié');
+    } else {
+      window.prompt('Appuyez sur Ctrl+C (Windows) ou Cmd+C (Mac) pour copier le message.', message);
+    }
+  };
+
   $scope.copyPhoneNumber = function () {
+    $log.debug('ConversationCtrl->copyPhoneNumber()');
+
     var number = getLocalPhoneNumber();
 
     if (ionic.Platform.isAndroid()) {
