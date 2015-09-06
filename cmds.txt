@@ -1,0 +1,3 @@
+gulp --cordova 'run android'
+cordova plugin remove com.josselinbuils.SMSManager
+cordova plugin add ../SMSManager/
