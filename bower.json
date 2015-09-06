@@ -9,7 +9,7 @@
     "phoneformat.js": "latest",
     "angular-local-storage": "latest",
     "jquery": "latest",
-    "ionic": "latest",
+    "ionic": "1.1.0",
     "peerjs": "latest"
   },
   "devDependencies": {},
