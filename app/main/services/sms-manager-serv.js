@@ -320,6 +320,12 @@ angular.module('main').service('SmsManagerServ', function ($ionicPlatform, $log,
         getConvThumbnails();
       }
 
+      SMSManager.listenLogs(function (log) {
+        $log.debug('SMSManager: ' + log);
+      }, function (log) {
+        $log.error('SMSManager: ' + log);
+      });
+
       SMSManager.listenEvents(function (event) {
         $log.debug('SmsManagerServ: event received : ' + event + '.');
 
