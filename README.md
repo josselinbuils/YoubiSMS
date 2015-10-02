@@ -16,6 +16,7 @@ YoubiSMS need the following dependencies:
 ## Environment installation
 ```
 git clone https://github.com/josselinbuils/YoubiSMS.git
+cd YoubiSMS
 npm install
 bower install
 ionic platform add android
