@@ -9,19 +9,7 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"cordova-plugin-smsmanager\"><param name=\"android-package\" value=\"org.josselinbuils.cordova-plugin-smsmanager.cordova-plugin-smsmanager\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Contacts\"><param name=\"android-package\" value=\"org.apache.cordova.contacts.ContactManager\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Keyboard\"><param name=\"android-package\" value=\"com.ionic.keyboard.IonicKeyboard\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": "<feature name=\"Keyboard\"><param name=\"android-package\" value=\"io.ionic.keyboard.IonicKeyboard\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
                         {
@@ -29,7 +17,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Toast\"><param name=\"android-package\" value=\"nl.xservices.plugins.Toast\" /></feature>",
+                            "xml": "<feature name=\"Contacts\"><param name=\"android-package\" value=\"org.apache.cordova.contacts.ContactManager\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
                         {
@@ -158,19 +150,16 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.josselinbuils.youbisms"
-        },
-        "cordova-plugin-contacts": {
-            "PACKAGE_NAME": "com.josselinbuils.youbisms"
-        },
-        "com.ionic.keyboard": {
+        "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.josselinbuils.youbisms"
         },
         "com.verso.cordova.clipboard": {
             "PACKAGE_NAME": "com.josselinbuils.youbisms"
         },
-        "nl.x-services.plugins.toast": {
+        "org.apache.cordova.contacts": {
+            "PACKAGE_NAME": "com.josselinbuils.youbisms"
+        },
+        "org.apache.cordova.statusbar": {
             "PACKAGE_NAME": "com.josselinbuils.youbisms"
         },
         "com.josselinbuils.SMSManager": {

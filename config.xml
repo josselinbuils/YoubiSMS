@@ -3,12 +3,8 @@
   <preference name="KeyboardDisplayRequiresUserAction" value="true" />
   <preference name="Orientation" value="portrait" />
   <name>YoubiSMS</name>
-  <description>
-      A simple SMS app for Android.
-  </description>
-  <author email="josselin.buils@gmail.com" href="http://www.josselinbuils.fr">
-        Josselin BUILS
-  </author>
+  <description>A simple SMS app for Android.</description>
+  <author email="josselin.buils@gmail.com" href="http://www.josselinbuils.fr">Josselin BUILS</author>
   <content src="index.html"/>
   <access origin="*"/>
   <platform name="android">
