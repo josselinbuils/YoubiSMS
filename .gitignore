@@ -14,7 +14,3 @@
 
 # build folder
 /www/
-
-# IDE
-*.sublime-project
-*.sublime-workspace
