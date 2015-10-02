@@ -14,7 +14,7 @@ YoubiSMS need the following dependencies:
 - XCode (Mac only)
 
 ## Environment installation
-``````````
+```
 git clone https://github.com/josselinbuils/YoubiSMS.git
 npm install
 bower install
@@ -25,13 +25,15 @@ cordova plugin add https://github.com/josselinbuils/SMSManager.git
 cordova plugin add https://github.com/VersoSolutions/CordovaClipboard.git
 cordova plugin add org.apache.cordova.contacts
 cordova plugin add org.apache.cordova.statusbar
-``````````
+```
 
 ## Build
-`gulp --cordova 'run android'
+```
+gulp --cordova 'run android'
+```
 
 ## Remove and add local SMSManager
-``
+```
 cordova plugin remove com.josselinbuils.SMSManager
 cordova plugin add [path]
-``
+```
