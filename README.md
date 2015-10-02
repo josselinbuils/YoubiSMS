@@ -15,21 +15,23 @@ YoubiSMS need the following dependencies:
 
 ## Environment installation
 ``````````
-- git clone https://github.com/josselinbuils/YoubiSMS.git
-- npm install
-- bower install
-- ionic platform add android
-- Copy drawables to platforms/android/res/drawable
-- cordova plugin add ionic-plugin-keyboard
-- cordova plugin add https://github.com/josselinbuils/SMSManager.git
-- cordova plugin add https://github.com/VersoSolutions/CordovaClipboard.git
-- cordova plugin add org.apache.cordova.contacts
-- cordova plugin add org.apache.cordova.statusbar
+git clone https://github.com/josselinbuils/YoubiSMS.git
+npm install
+bower install
+ionic platform add android
+Copy drawables to platforms/android/res/drawable
+cordova plugin add ionic-plugin-keyboard
+cordova plugin add https://github.com/josselinbuils/SMSManager.git
+cordova plugin add https://github.com/VersoSolutions/CordovaClipboard.git
+cordova plugin add org.apache.cordova.contacts
+cordova plugin add org.apache.cordova.statusbar
 ``````````
 
 ## Build
-- gulp --cordova 'run android'
+`gulp --cordova 'run android'
 
 ## Remove and add local SMSManager
-- cordova plugin remove com.josselinbuils.SMSManager
-- cordova plugin add ../SMSManager/
+``
+cordova plugin remove com.josselinbuils.SMSManager
+cordova plugin add [path]
+``
