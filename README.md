@@ -27,6 +27,7 @@ cordova plugin add https://github.com/VersoSolutions/CordovaClipboard.git
 cordova plugin add org.apache.cordova.contacts
 cordova plugin add org.apache.cordova.statusbar
 ```
+If the error "Current Working Directory is not Cordova-based project" appears, try to build the project width `gulp --cordova 'run android'` before adding android platform.
 
 ## Build
 ```
