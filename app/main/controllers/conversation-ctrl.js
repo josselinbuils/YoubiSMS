@@ -76,8 +76,9 @@ angular.module('main').controller('ConversationCtrl', function ($filter, $ionicH
 
     SmsManagerServ.getMessages($scope.conversation.id).then(function (messages) {
       $scope.messages = messages;
-      $scope.$applyAsync();
-      $ionicScrollDelegate.scrollBottom();
+      $timeout(function () {
+        $ionicScrollDelegate.scrollBottom();
+      });
     });
   }
 

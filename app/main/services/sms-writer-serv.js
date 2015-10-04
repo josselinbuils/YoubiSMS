@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('main').service('SmsWriterServ', function ($ionicHistory, $ionicScrollDelegate, $state, SmsManagerServ) {
+angular.module('main').service('SmsWriterServ', function ($ionicHistory, $ionicScrollDelegate, $state, $timeout, SmsManagerServ) {
 
   /* Private variables */
 
@@ -19,9 +19,10 @@ angular.module('main').service('SmsWriterServ', function ($ionicHistory, $ionicS
   /* Private function */
 
   function convInputChange() {
-    scope.sendDisabled = $('#convInput').val().length === 0;
-    resizeConvInput();
-    scope.$applyAsync();
+    scope.$evalAsync(function () {
+      scope.sendDisabled = $('#convInput').val().length === 0;
+      resizeConvInput();
+    });
   }
 
   function resizeConvInput() {
@@ -30,7 +31,9 @@ angular.module('main').service('SmsWriterServ', function ($ionicHistory, $ionicS
     $('ion-content.has-footer').css('bottom', $('ion-footer-bar').height() + 'px');
 
     if ($state.is('conversation')) {
-      $ionicScrollDelegate.$getByHandle('convMessages').scrollBottom();
+      $timeout(function () {
+        $ionicScrollDelegate.$getByHandle('convMessages').scrollBottom();
+      });
     }
   }
 
@@ -38,14 +41,20 @@ angular.module('main').service('SmsWriterServ', function ($ionicHistory, $ionicS
     $('.emojiContainer').show();
     window.removeEventListener('native.keyboardhide', showEmoji);
     $('.has-footer').css('bottom', $('.convFooter').outerHeight() + 'px');
-    $ionicScrollDelegate.scrollBottom();
+
+    $timeout(function () {
+      $ionicScrollDelegate.scrollBottom();
+    });
   }
 
   function slideUpEmoji() {
     if ($('.emojiContainer').is(':visible')) {
       $('.emojiContainer').slideUp(100, function () {
         $('.has-footer').css('bottom', '44px');
-        $ionicScrollDelegate.scrollBottom(true);
+
+        $timeout(function () {
+          $ionicScrollDelegate.scrollBottom(true);
+        });
       });
     }
   }
@@ -59,7 +68,9 @@ angular.module('main').service('SmsWriterServ', function ($ionicHistory, $ionicS
     $('ion-content.has-footer').css('bottom', $('ion-footer-bar').height() + 'px');
 
     if ($state.is('conversation')) {
-      $ionicScrollDelegate.$getByHandle('convMessages').scrollBottom(true);
+      $timeout(function () {
+        $ionicScrollDelegate.$getByHandle('convMessages').scrollBottom(true);
+      });
     }
   };
 
@@ -75,7 +86,7 @@ angular.module('main').service('SmsWriterServ', function ($ionicHistory, $ionicS
     }
 
     $('#convInput').val(content.substr(0, cursorPos - del) + content.substr(cursorPos, content.length - cursorPos));
-    scope.convInputChange();
+    convInputChange();
   };
 
   self.insertEmoji = function (emoji) {
