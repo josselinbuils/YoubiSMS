@@ -28,7 +28,7 @@ angular.module('main').service('SmsManagerServ', function ($ionicPlatform, $log,
         SMSManager.getContactThumbnail({
           id: contactId
         }, function (data) {
-          $log.debug('SMSManager: thumbnail of contact ' + contactId + ' loaded.');
+          $log.debug('SmsManagerServ: thumbnail of contact ' + contactId + ' loaded.');
 
           self.contactThumbnails[contactId] = data || self.defaultUserPicture;
 
@@ -67,7 +67,7 @@ angular.module('main').service('SmsManagerServ', function ($ionicPlatform, $log,
             SMSManager.getContactThumbnail({
               id: contact.id
             }, function (data) {
-              $log.debug('SMSManager: thumbnail of conversation ' + conversation.id + ' loaded.');
+              $log.debug('SmsManagerServ: thumbnail of conversation ' + conversation.id + ' loaded.');
               self.convThumbnails[conversation.id] = data || self.defaultUserPicture;
               $rootScope.$broadcast('SmsManagerServ.convThumbnailLoaded');
             });
@@ -248,7 +248,7 @@ angular.module('main').service('SmsManagerServ', function ($ionicPlatform, $log,
         SMSManager.getContactPhoto({
           id: contact.id
         }, function (data) {
-          $log.debug('SMSManager: photo of contact ' + contact.id + ' loaded.');
+          $log.debug('SmsManagerServ: photo of contact ' + contact.id + ' loaded.');
           callback(data || randomPhoto);
         });
       } else {
@@ -321,9 +321,9 @@ angular.module('main').service('SmsManagerServ', function ($ionicPlatform, $log,
       }
 
       SMSManager.listenLogs(function (log) {
-        $log.debug('SMSManager: ' + log);
+        $log.debug('SMSManagerPlugin: ' + log);
       }, function (log) {
-        $log.error('SMSManager: ' + log);
+        $log.error('SMSManagerPlugin: ' + log);
       });
 
       SMSManager.listenEvents(function (event) {
