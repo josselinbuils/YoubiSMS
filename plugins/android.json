@@ -27,6 +27,10 @@
                         {
                             "xml": "<feature name=\"SMSManager\"><param name=\"android-package\" value=\"com.josselinbuils.SMSManager.SMSManager\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -163,6 +167,9 @@
             "PACKAGE_NAME": "com.josselinbuils.youbisms"
         },
         "com.josselinbuils.SMSManager": {
+            "PACKAGE_NAME": "com.josselinbuils.youbisms"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.josselinbuils.youbisms"
         }
     },
